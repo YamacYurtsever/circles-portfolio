@@ -264,7 +264,7 @@ main {
     background-position: center;
 }
 
-#projects-container a:visited {
+#projects-container a:link,#projects-container a:visited {
     color: white;
 }
 
