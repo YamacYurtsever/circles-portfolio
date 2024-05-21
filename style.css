@@ -1,0 +1,289 @@
+/* VARIABLES */
+
+:root {
+    --color-primary: rgb(29, 31, 32);
+    --color-secondary: rgb(130, 130, 130);
+    --color-secondary-transparent: rgba(130, 130, 130, 0.5);
+    --color-index: rgb(145, 84, 222);
+    --color-index-transparent: rgba(78, 40, 125, 0.75);
+    --color-about: rgb(59, 121, 187);
+    --color-about-transparent: rgba(56, 100, 147, 0.75);
+    --color-hobbies: rgb(186, 188, 46);
+    --color-hobbies-transparent: rgba(150, 151, 67, 0.75);
+    --color-projects: rgb(57, 171, 89);
+    --color-projects-transparent: rgba(67, 143, 89, 0.75);
+
+    --coin-diameter: 20vh;
+}
+
+/* GENERAL */
+
+*, 
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-image: linear-gradient(to bottom, var(--color-index-transparent), var(--color-index-transparent)), url('images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 62.5%;
+    font-weight: 400;
+	letter-spacing: 0.2rem;
+    color: white;
+}
+
+body {
+    height: 100vh;
+}
+
+main {
+    height: 100vh;
+    width: 100vh;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0px 0px 30px 30px var(--color-index);
+    margin: auto;
+}
+
+#content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vh;
+    height: 80vh;
+    display: block;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.flip {
+    height: var(--coin-diameter);
+    width: var(--coin-diameter);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.75s;
+}
+
+.coin {
+    height: var(--coin-diameter);
+    width: var(--coin-diameter);
+    background-color: var(--color-primary);
+    box-shadow: 0px 0px 15px 15px var(--color-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.75s;
+}
+
+.coin-front, .coin-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.coin-back {
+    transform: rotateY(180deg);
+    background-color: var(--color-secondary);
+    box-shadow: none;
+}
+
+/* TITLE */
+
+#title {
+    font-size: 3rem;
+    font-weight: 700;
+    position: relative;
+    top: 7.5vh;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 0.5rem;
+}
+
+/* BACK */
+
+#back {
+    height: 5vh;
+    width: 5vh;
+    position: absolute;
+    top: calc(50% - 5vh);
+    left: -7.5vh;
+    display: none;
+    transition: all 0.75s;
+}
+
+#back:hover {
+    height: 5.5vh;
+    width: 5.5vh;
+    cursor: pointer;
+}
+
+/* ICONS */
+
+#icons {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    top: 85vh;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#icons img {
+    height: 5vh;
+    width: 5vh;
+    border-radius: 25%;
+    transition: all 0.75s;
+}
+
+#middle-icon {
+    margin-top: 3vh;
+}
+
+#icons img:hover {
+    height: 5.5vh;
+    width: 5.5vh;
+}
+
+/* INDEX */
+
+#about {
+    box-shadow: 0px 0px 15px 15px var(--color-about);
+}
+
+#hobbies {
+    box-shadow: 0px 0px 15px 15px var(--color-hobbies);
+}
+
+#projects {
+    box-shadow: 0px 0px 15px 15px var(--color-projects);
+    margin: 0 auto;
+}
+
+#about:hover {
+    background-color: var(--color-about);
+    box-shadow: none;
+    cursor: pointer;
+}
+
+#hobbies:hover {
+    background-color: var(--color-hobbies);
+    box-shadow: none;
+    cursor: pointer;
+}
+
+#projects:hover {
+    background-color: var(--color-projects);
+    box-shadow: none;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+/* ABOUT */
+
+#about-container {
+    display: none;
+    justify-content: space-evenly;
+}
+
+/* HOBBIES */
+
+#hobbies-container {
+    display: none;
+}
+
+#hobbies-container .coin-back {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#hobbies-container .coin-back:hover {
+    background-position: center;
+}
+
+#cooking {
+    background-image: linear-gradient(to bottom, var(--color-secondary-transparent), var(--color-secondary-transparent)), url('images/hobbies/cooking.png');
+}
+
+#languages {
+    background-image: linear-gradient(to bottom, var(--color-secondary-transparent), var(--color-secondary-transparent)), url('images/hobbies/languages.png');
+}
+
+#sports {
+    background-image: linear-gradient(to bottom, var(--color-secondary-transparent), var(--color-secondary-transparent)), url('images/hobbies/sports.png');
+}
+
+#travelling {
+    background-image: linear-gradient(to bottom, var(--color-secondary-transparent), var(--color-secondary-transparent)), url('images/hobbies/travelling.jpeg');
+}
+
+#games {
+    background-image: linear-gradient(to bottom, var(--color-secondary-transparent), var(--color-secondary-transparent)), url('images/hobbies/games.png');
+}
+
+#programming {
+    background-image: linear-gradient(to bottom, var(--color-secondary-transparent), var(--color-secondary-transparent)), url('images/hobbies/programming.png');
+}
+
+/* PROJECTS */
+
+#projects-container {
+    display: none;
+}
+
+#projects-container .coin-back {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#projects-container .coin-back:hover {
+    cursor: pointer;
+    background-position: center;
+}
+
+#projects-container a:visited {
+    color: white;
+}
+
+#escape-cave {
+    background-image: linear-gradient(to bottom, var(--color-secondary-transparent), var(--color-secondary-transparent)), url('images/projects/escape-cave.png');
+}
+
+#gotj {
+    background-image: linear-gradient(to bottom, var(--color-secondary-transparent), var(--color-secondary-transparent)), url('images/projects/guardian-of-the-jungle.png');
+}
+
+#mythstone {
+    background-image: linear-gradient(to bottom, var(--color-secondary-transparent), var(--color-secondary-transparent)), url('images/projects/mythstone.png');
+}
+
+#marstation {
+    background-image: linear-gradient(to bottom, var(--color-secondary-transparent), var(--color-secondary-transparent)), url('images/projects/marstation.png');
+}
+
+#our-cookbook {
+    background-image: linear-gradient(to bottom, var(--color-secondary-transparent), var(--color-secondary-transparent)), url('images/projects/our-cookbook.jpg');
+}
